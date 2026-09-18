@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="个人网站 - 展示我的作品、技能与联系方式" />
+  <title>我的个人网站</title>
+  <style>
+    :root {
+      /* Colors */
+      --color-void: #000000;
+      --color-bone-white: #ffffff;
+      --color-ash-gray: #9a9a9a;
+      --color-silver-mist: #bdbdbd;
+      --color-electric-iris: #8052ff;
+      --color-saffron-spark: #ffb829;
+      --color-deep-verdant: #15846e;
+
+      /* Typography */
+      --font-ppneuemontreal: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+      --font-weight-extralight: 200;
+      --font-weight-regular: 400;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+
+      /* Spacing */
+      --spacing-12: 12px;
+      --spacing-18: 18px;
+      --spacing-24: 24px;
+      --spacing-30: 30px;
+      --spacing-36: 36px;
+      --spacing-60: 60px;
+      --spacing-96: 96px;
+      --spacing-120: 120px;
+
+      --page-max-width: 1280px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-ppneuemontreal);
+      background: var(--color-void);
+      color: var(--color-bone-white);
+      line-height: 1.5;
+      font-weight: var(--font-weight-extralight);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container { max-width: var(--page-max-width); margin: 0 auto; padding: 0 40px; }
+
+    /* 环境粒子背景（固定） */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .site { position: relative; z-index: 1; }
+
+    /* ---------- 导航 ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: transparent;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      gap: 24px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--color-bone-white);
+    }
+    .logo svg { display: block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-left: auto;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--color-ash-gray);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-bone-white); }
+    .nav-cta { margin-left: 8px; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.6rem; }
+
+    /* ---------- 按钮 ---------- */
+    .btn {
+      display: inline-block;
+      padding: 14.4px 32px;
+      border-radius: 9999px;
+      background: var(--color-electric-iris);
+      color: var(--color-bone-white);
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { background: #6a3df0; transform: translateY(-2px); }
+
+    .ghost-link {
+      font-size: 14px;
+      font-weight: var(--font-weight-regular);
+      color: var(--color-bone-white);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .ghost-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: var(--color-saffron-spark);
+      transition: width 0.25s;
+    }
+    .ghost-link:hover::after { width: 100%; }
+
+    /* ---------- 通用 section ---------- */
+    section { padding: var(--spacing-120) 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--color-saffron-spark);
+      margin-bottom: var(--spacing-24);
+    }
+
+    .display {
+      font-weight: var(--font-weight-regular);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--color-bone-white);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: calc(100vh - 84px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0 80px;
+    }
+    .hero-copy .eyebrow { color: var(--color-saffron-spark); }
+    .hero-copy h1 {
+      font-size: clamp(46px, 8vw, 96px);
+      margin-bottom: var(--spacing-30);
+      max-width: 620px;
+    }
+    .hero-copy .lead {
+      font-size: 18px;
+      font-weight: var(--font-weight-extralight);
+      color: var(--color-bone-white);
+      max-width: 460px;
+      margin-bottom: var(--spacing-36);
+      line-height: 1.6;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: 560px;
+    }
+    .hero-visual canvas { width: 100%; height: 100%; display: block; }
+
+    /* ---------- 关于 ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+    }
+    .about-grid h2 { font-size: clamp(34px, 4.5vw, 56px); }
+    .about-body { font-size: 18px; font-weight: var(--font-weight-extralight); color: var(--color-silver-mist); line-height: 1.7; max-width: 560px; }
+    .about-items { margin-top: var(--spacing-60); display: grid; gap: var(--spacing-36); }
+    .about-item .label {
+      font-size: 12px;
+      font-weight: var(--font-weight-regular);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--color-electric-iris);
+    }
+    .about-item h3 {
+      font-size: 27px;
+      font-weight: var(--font-weight-regular);
+      color: var(--color-bone-white);
+      margin: 6px 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .about-item p { font-size: 16px; font-weight: var(--font-weight-extralight); color: var(--color-ash-gray); line-height: 1.6; }
+
+    /* ---------- 技能 ---------- */
+    .skills-head { max-width: 720px; margin-bottom: var(--spacing-60); }
+    .skills-head h2 { font-size: clamp(34px, 4.5vw, 56px); margin-top: 0; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 14px; }
+    .skill-tag {
+      padding: 12px 24px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--color-silver-mist);
+      font-size: 15px;
+      font-weight: var(--font-weight-extralight);
+      transition: background 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { background: rgba(128, 82, 255, 0.16); color: var(--color-bone-white); }
+
+    /* ---------- 项目 ---------- */
+    .projects-head { margin-bottom: var(--spacing-96); }
+    .projects-head h2 { font-size: clamp(34px, 4.5vw, 56px); margin-top: 0; }
+    .project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: var(--spacing-60) 0;
+    }
+    .project-title {
+      font-size: clamp(34px, 5vw, 64px);
+      font-weight: var(--font-weight-regular);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--color-bone-white);
+    }
+    .project-meta { color: var(--color-ash-gray); font-size: 14px; font-weight: var(--font-weight-regular); letter-spacing: 0.025em; text-transform: uppercase; margin-top: 14px; }
+    .project-body p { font-size: 18px; font-weight: var(--font-weight-extralight); color: var(--color-silver-mist); line-height: 1.7; margin-bottom: var(--spacing-24); }
+    .project-link {
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--color-saffron-spark);
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* ---------- 联系 ---------- */
+    .contact { max-width: 720px; }
+    .contact h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: var(--spacing-24); }
+    .contact p { font-size: 18px; font-weight: var(--font-weight-extralight); color: var(--color-silver-mist); line-height: 1.7; margin-bottom: var(--spacing-36); }
+    .contact-mail { color: var(--color-saffron-spark); }
+    .contact-mail:hover { text-decoration: underline; }
+    .contact-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: var(--spacing-60) 0;
+    }
+    footer .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer p { font-size: 14px; font-weight: var(--font-weight-extralight); color: var(--color-ash-gray); }
+
+    /* ---------- 回到顶部 ---------- */
+    .back-top {
+      position: fixed;
+      right: 24px; bottom: 24px;
+      z-index: 90;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--color-electric-iris);
+      color: #fff; border: none;
+      font-size: 1.2rem; cursor: pointer;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .back-top.show { opacity: 1; pointer-events: auto; }
+
+    /* ---------- 雨效叠加层 ---------- */
+    #dim-overlay {
+      position: fixed; inset: 0; z-index: 2;
+      background: rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+    #light-canvas {
+      position: fixed; inset: 0; z-index: 3;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+    #rain-canvas {
+      position: fixed; inset: 0; z-index: 4;
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+    .rain-off #dim-overlay,
+    .rain-off #light-canvas,
+    .rain-off #rain-canvas { opacity: 0; }
+    .rain-toggle {
+      position: fixed;
+      left: 24px; bottom: 24px;
+      z-index: 90;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      background: rgba(128, 82, 255, 0.9);
+      color: #fff; border: none;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.025em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rain-toggle:hover { background: #6a3df0; }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 24px; }
+      .hero-visual { height: 320px; order: -1; }
+      .hero-copy h1 { font-size: clamp(40px, 13vw, 64px); }
+      .about-grid, .project { grid-template-columns: 1fr; gap: 32px; }
+      .about-items { margin-top: var(--spacing-36); }
+      .projects-head { margin-bottom: var(--spacing-60); }
+      section { padding: var(--spacing-96) 0; }
+      .container { padding: 0 24px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links {
+        position: absolute; top: 84px; left: 0; right: 0;
+        background: #000;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 20px;
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .nav-cta { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div id="dim-overlay"></div>
+  <canvas id="light-canvas"></canvas>
+  <canvas id="rain-canvas"></canvas>
+
+  <div class="site">
+    <header>
+      <nav class="container">
+        <a href="#" class="logo">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <defs>
+              <linearGradient id="lg" x1="0" y1="0" x2="18" y2="18">
+                <stop offset="0" stop-color="#8052ff"/>
+                <stop offset="1" stop-color="#15846e"/>
+              </linearGradient>
+            </defs>
+            <path d="M9 1.5 L16.5 15 L1.5 15 Z" stroke="url(#lg)" stroke-width="1.5" fill="rgba(128,82,255,0.15)"/>
+          </svg>
+          我的主页
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">关于</a></li>
+          <li><a href="#skills">技能</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+        <a href="#contact" class="btn nav-cta">联系我</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Hello — Portfolio</span>
+          <h1 class="display">用代码与设计<br>创造价值</h1>
+          <p class="lead">
+            一名热爱创造的开发者。我专注于打造简洁、优雅且有价值的作品，
+            用代码解决问题，用设计表达想法。
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn">查看作品</a>
+            <a href="#contact" class="ghost-link">联系我 →</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <canvas id="hero-canvas"></canvas>
+        </div>
+      </section>
+
+      <!-- 关于 -->
+      <section id="about">
+        <div class="about-grid">
+          <div>
+            <span class="eyebrow">About</span>
+            <h2 class="display">关于我</h2>
+          </div>
+          <div class="about-body">
+            我持续学习、不断成长，用技术创造长期价值。以下是我的一些经历与兴趣。
+          </div>
+        </div>
+        <div class="about-items">
+          <div class="about-item">
+            <span class="label">Goal · 目标</span>
+            <h3>做出真正好用的产品</h3>
+            <p>持续学习、不断成长，用技术创造长期价值，解决真实世界的问题。</p>
+          </div>
+          <div class="about-item">
+            <span class="label">Experience · 经历</span>
+            <h3>多年项目开发经验</h3>
+            <p>参与过多个产品的设计与实现，积累了丰富的实战经验，覆盖从 0 到 1 的全过程。</p>
+          </div>
+          <div class="about-item">
+            <span class="label">Interest · 兴趣</span>
+            <h3>保持对世界的好奇</h3>
+            <p>喜欢探索新技术、阅读、摄影与旅行，在创造与生活中寻找灵感。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 技能 -->
+      <section id="skills">
+        <div class="skills-head">
+          <span class="eyebrow">Skills</span>
+          <h2 class="display">技能</h2>
+        </div>
+        <div class="skills-list">
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Vue</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </section>
+
+      <!-- 项目 -->
+      <section id="projects">
+        <div class="projects-head">
+          <span class="eyebrow">Work</span>
+          <h2 class="display">项目作品</h2>
+        </div>
+
+        <div class="project">
+          <div>
+            <h3 class="project-title">项目一</h3>
+            <p class="project-meta">01 · 工具应用</p>
+          </div>
+          <div class="project-body">
+            <p>一个简洁高效的工具类应用，帮助用户快速完成日常任务，注重细节与交互体验。</p>
+            <a href="#" class="project-link">了解更多 →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <h3 class="project-title">项目二</h3>
+            <p class="project-meta">02 · 设计作品集</p>
+          </div>
+          <div class="project-body">
+            <p>一个注重体验的设计作品集网站，通过版式与留白呈现视觉与交互的细节。</p>
+            <a href="#" class="project-link">了解更多 →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <h3 class="project-title">项目三</h3>
+            <p class="project-meta">03 · 数据可视化</p>
+          </div>
+          <div class="project-body">
+            <p>一个数据可视化面板，将复杂的数据转化为清晰易懂、可交互的图表。</p>
+            <a href="#" class="project-link">了解更多 →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 联系 -->
+      <section id="contact">
+        <div class="contact">
+          <span class="eyebrow">Contact</span>
+          <h2 class="display">保持联系</h2>
+          <p>
+            如果你有合作意向或想聊聊想法，欢迎随时联系我。
+            邮箱：<a class="contact-mail" href="mailto:your-email@example.com">your-email@example.com</a>
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:your-email@example.com" class="btn">给我写信</a>
+            <a href="https://github.com/" target="_blank" rel="noopener" class="ghost-link">GitHub →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> 我的个人网站 · 用心创造</p>
+        <p>Constellation floating on black velvet.</p>
+      </div>
+    </footer>
+  </div>
+
+  <button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+  <button class="rain-toggle" id="rainToggle">雨效：开</button>
+
+  <script>
+    // ===== 工具 =====
+    const PALETTE = ['#8052ff', '#ffb829', '#15846e', '#e34fff', '#4f6df5', '#b26bff'];
+    const rand = (min, max) => min + Math.random() * (max - min);
+    function randn() {
+      let u = 0, v = 0;
+      while (u === 0) u = Math.random();
+      while (v === 0) v = Math.random();
+      return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    }
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+    function drawTriangle(ctx, x, y, size, rotation, color, alpha) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.globalAlpha = alpha;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.2;
+      const h = size;
+      const r = size * 0.62;
+      ctx.beginPath();
+      ctx.moveTo(0, -r);
+      ctx.lineTo(-h * 0.5, r);
+      ctx.lineTo(h * 0.5, r);
+      ctx.closePath();
+      ctx.stroke();
+      if (alpha > 0.5) {
+        ctx.globalAlpha = alpha * 0.18;
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    // ===== 环境粒子（固定背景，稀疏） =====
+    const bgCanvas = document.getElementById('bg-canvas');
+    const bgCtx = bgCanvas.getContext('2d');
+    let bgParticles = [];
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resizeBg() {
+      bgCanvas.width = window.innerWidth * dpr;
+      bgCanvas.height = window.innerHeight * dpr;
+      bgCanvas.style.width = window.innerWidth + 'px';
+      bgCanvas.style.height = window.innerHeight + 'px';
+      bgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function initBg() {
+      bgParticles = [];
+      const count = Math.min(70, Math.floor(window.innerWidth * window.innerHeight / 22000));
+      for (let i = 0; i < count; i++) {
+        bgParticles.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: rand(1.5, 3.5),
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: rand(-0.004, 0.004),
+          color: pick(PALETTE),
+          alpha: rand(0.08, 0.3),
+          vx: rand(-0.12, 0.12),
+          vy: rand(-0.12, 0.12),
+          tw: rand(0.002, 0.01)
+        });
+      }
+    }
+    function renderBg() {
+      bgCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      bgParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.rotSpeed;
+        if (p.x < -20) p.x = window.innerWidth + 20;
+        if (p.x > window.innerWidth + 20) p.x = -20;
+        if (p.y < -20) p.y = window.innerHeight + 20;
+        if (p.y > window.innerHeight + 20) p.y = -20;
+        const a = p.alpha * (0.7 + 0.3 * Math.sin(Date.now() * p.tw));
+        drawTriangle(bgCtx, p.x, p.y, p.size, p.rot, p.color, a);
+      });
+      requestAnimationFrame(renderBg);
+    }
+
+    // ===== Hero 星座（脑形粒子云） =====
+    const heroCanvas = document.getElementById('hero-canvas');
+    const heroCtx = heroCanvas.getContext('2d');
+    let brainParticles = [];
+    let heroW = 0, heroH = 0;
+
+    function resizeHero() {
+      const box = heroCanvas.parentElement.getBoundingClientRect();
+      heroW = box.width;
+      heroH = box.height;
+      heroCanvas.width = heroW * dpr;
+      heroCanvas.height = heroH * dpr;
+      heroCanvas.style.width = heroW + 'px';
+      heroCanvas.style.height = heroH + 'px';
+      heroCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initBrain();
+    }
+    function initBrain() {
+      brainParticles = [];
+      const cx = heroW / 2;
+      const cy = heroH / 2;
+      const scale = Math.min(heroW, heroH) / 2.4;
+      const count = Math.min(340, Math.floor((heroW * heroH) / 2200));
+
+      for (let i = 0; i < count; i++) {
+        const side = Math.random() < 0.5 ? -1 : 1;
+        const x = cx + side * scale * 0.5 + randn() * scale * 0.62;
+        const y = cy + randn() * scale * 0.95;
+        brainParticles.push({
+          bx: x, by: y,
+          x: x, y: y,
+          size: rand(1.6, 5.5),
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: rand(-0.006, 0.006),
+          color: pick(PALETTE),
+          alpha: rand(0.25, 0.9),
+          drift: rand(0, Math.PI * 2),
+          driftSpeed: rand(0.0006, 0.002),
+          amp: rand(3, 14)
+        });
+      }
+      // 少量外围散布
+      for (let i = 0; i < count * 0.35; i++) {
+        const x = rand(0, heroW);
+        const y = rand(0, heroH);
+        brainParticles.push({
+          bx: x, by: y,
+          x: x, y: y,
+          size: rand(1.4, 3.4),
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: rand(-0.004, 0.004),
+          color: pick(PALETTE),
+          alpha: rand(0.1, 0.4),
+          drift: rand(0, Math.PI * 2),
+          driftSpeed: rand(0.0006, 0.002),
+          amp: rand(2, 8)
+        });
+      }
+    }
+    function renderHero() {
+      heroCtx.clearRect(0, 0, heroW, heroH);
+      const t = Date.now();
+      brainParticles.forEach(p => {
+        p.rot += p.rotSpeed;
+        const breathe = 1 + 0.04 * Math.sin(t * 0.0006 + p.drift);
+        p.x = p.bx * breathe - (p.bx - heroW / 2) * (1 - breathe) * 1.4 + Math.sin(t * p.driftSpeed + p.drift) * p.amp;
+        p.y = p.by * breathe - (p.by - heroH / 2) * (1 - breathe) * 1.4 + Math.cos(t * p.driftSpeed + p.drift) * p.amp;
+        const a = p.alpha * (0.7 + 0.3 * Math.sin(t * 0.002 + p.drift));
+        drawTriangle(heroCtx, p.x, p.y, p.size, p.rot, p.color, a);
+      });
+      requestAnimationFrame(renderHero);
+    }
+
+    // ===== 初始化 =====
+    resizeBg();
+    initBg();
+    renderBg();
+    resizeHero();
+    renderHero();
+    window.addEventListener('resize', () => { resizeBg(); initBg(); resizeHero(); });
+
+    // ===== UI =====
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 400));
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+  <script>
+    // ===== Glyph Rain（字形雨效） =====
+    (function () {
+      const rainCanvas = document.getElementById('rain-canvas');
+      const lightCanvas = document.getElementById('light-canvas');
+      const rctx = rainCanvas.getContext('2d');
+      const lctx = lightCanvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      const CHARSET = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789Z*+-<>¦=:.';
+      const randChar = () => CHARSET[(Math.random() * CHARSET.length) | 0];
+      const rgba = (hex, a) => {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgba(${r},${g},${b},${a})`;
+      };
+
+      let W = 0, H = 0, on = true;
+
+      function makeLayer(cell, alpha, speed, trailMin, trailMax, spawn, mutate) {
+        return { cell, alpha, speed, trailMin, trailMax, spawn, mutate, cols: [] };
+      }
+      // 前景层 + 背景视差层
+      const layers = [
+        makeLayer(18, 0.95, 0.16, 7, 15, 0.6, 0.012),
+        makeLayer(11, 0.42, 0.10, 9, 22, 0.5, 0.008)
+      ];
+
+      const cursor = { x: -9999, y: -9999, vx: 0 };
+      window.addEventListener('mousemove', (e) => {
+        cursor.vx = cursor.x === -9999 ? 0 : e.clientX - cursor.x;
+        cursor.x = e.clientX;
+        cursor.y = e.clientY;
+      });
+
+      function resize() {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        rainCanvas.width = W * dpr;
+        rainCanvas.height = H * dpr;
+        rainCanvas.style.width = W + 'px';
+        rainCanvas.style.height = H + 'px';
+        rctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        lightCanvas.width = W * dpr;
+        lightCanvas.height = H * dpr;
+        lightCanvas.style.width = W + 'px';
+        lightCanvas.style.height = H + 'px';
+        lctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        layers.forEach((L) => {
+          const n = Math.ceil(W / L.cell);
+          L.cols = [];
+          for (let i = 0; i < n; i++) L.cols.push({ drops: [], stir: 0 });
+        });
+      }
+
+      function spawnDrop(L, col) {
+        const len = L.trailMin + Math.floor(Math.random() * (L.trailMax - L.trailMin));
+        const glyphs = [];
+        for (let i = 0; i < len; i++) glyphs.push(randChar());
+        col.drops.push({
+          y: -len * L.cell * Math.random(),
+          speed: L.speed * H * (0.6 + Math.random() * 0.8),
+          glyphs
+        });
+      }
+
+      const STIR_RADIUS = 150;
+      function update(dt) {
+        layers.forEach((L) => {
+          L.cols.forEach((col, i) => {
+            const colX = i * L.cell + L.cell / 2;
+            const dist = Math.abs(colX - cursor.x);
+            if (dist < STIR_RADIUS) {
+              const force = (1 - dist / STIR_RADIUS) * Math.min(1, 0.25 + Math.abs(cursor.vx) * 0.02);
+              col.stir = Math.min(1, col.stir + force);
+            }
+            col.stir *= Math.pow(0.0005, dt);
+
+            if (col.drops.length < 1 && Math.random() < L.spawn * dt) spawnDrop(L, col);
+            else if (col.drops.length < 2 && Math.random() < L.spawn * 0.2 * dt) spawnDrop(L, col);
+
+            for (let d = col.drops.length - 1; d >= 0; d--) {
+              const drop = col.drops[d];
+              drop.y += drop.speed * (1 + col.stir * 2.2) * dt;
+              if (drop.y - drop.glyphs.length * L.cell > H + L.cell) col.drops.splice(d, 1);
+            }
+          });
+        });
+      }
+
+      function drawLight(x, y, strength) {
+        const r = 60 + 90 * strength;
+        const g = lctx.createRadialGradient(x, y, 0, x, y, r);
+        g.addColorStop(0, rgba('#c9b3ff', 0.30 * strength));
+        g.addColorStop(0.5, rgba('#8052ff', 0.12 * strength));
+        g.addColorStop(1, rgba('#8052ff', 0));
+        lctx.fillStyle = g;
+        lctx.fillRect(x - r, y - r, r * 2, r * 2);
+      }
+
+      function render() {
+        rctx.clearRect(0, 0, W, H);
+        lctx.clearRect(0, 0, W, H);
+        layers.forEach((L, li) => {
+          rctx.font = `${L.cell}px "Inter","SF Mono",monospace`;
+          rctx.textAlign = 'center';
+          rctx.textBaseline = 'middle';
+          L.cols.forEach((col, i) => {
+            const colX = i * L.cell + L.cell / 2;
+            col.drops.forEach((drop) => {
+              const n = drop.glyphs.length;
+              const boost = 1 + col.stir * 1.5;
+              for (let k = 0; k < n; k++) {
+                const gy = drop.y - k * L.cell;
+                if (gy < -L.cell || gy > H + L.cell) continue;
+                if (Math.random() < L.mutate) drop.glyphs[k] = randChar();
+                const fade = 1 - k / n;
+                if (k === 0) {
+                  rctx.shadowColor = '#8052ff';
+                  rctx.shadowBlur = li === 0 ? 14 : 6;
+                  rctx.fillStyle = rgba('#efe6ff', Math.min(1, (0.5 + 0.5 * fade) * boost));
+                  rctx.fillText(drop.glyphs[k], colX, gy);
+                  rctx.shadowBlur = 0;
+                  drawLight(colX, gy, Math.min(1, (0.35 + 0.65 * col.stir) * L.alpha));
+                } else {
+                  rctx.fillStyle = rgba('#8052ff', fade * fade * L.alpha * (0.35 + 0.65 * col.stir));
+                  rctx.fillText(drop.glyphs[k], colX, gy);
+                }
+              }
+            });
+          });
+        });
+      }
+
+      let last = performance.now();
+      function loop(now) {
+        const dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        if (on) { update(dt); render(); }
+        requestAnimationFrame(loop);
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      requestAnimationFrame(loop);
+
+      const btn = document.getElementById('rainToggle');
+      btn.addEventListener('click', () => {
+        on = !on;
+        document.body.classList.toggle('rain-off', !on);
+        btn.textContent = on ? '雨效：开' : '雨效：关';
+        if (on) { last = performance.now(); rctx.clearRect(0, 0, W, H); lctx.clearRect(0, 0, W, H); }
+      });
+    })();
+  </script>
+</body>
+</html>
