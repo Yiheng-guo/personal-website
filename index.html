@@ -263,6 +263,69 @@
     }
     .project-link:hover { text-decoration: underline; }
 
+    /* ---------- 公众号 ---------- */
+    .wechat { max-width: 900px; }
+    .wechat h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: var(--spacing-24); }
+    .wechat-desc { font-size: 18px; font-weight: var(--font-weight-extralight); color: var(--color-silver-mist); line-height: 1.7; margin-bottom: var(--spacing-60); max-width: 560px; }
+    .wechat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: var(--spacing-60);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-60);
+      align-items: center;
+    }
+    .wechat-info h3 {
+      font-size: 28px;
+      font-weight: var(--font-weight-regular);
+      color: var(--color-bone-white);
+      margin-bottom: var(--spacing-18);
+      letter-spacing: -0.02em;
+    }
+    .wechat-info p {
+      font-size: 16px;
+      font-weight: var(--font-weight-extralight);
+      color: var(--color-ash-gray);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-24);
+    }
+    .wechat-stats {
+      display: flex;
+      gap: var(--spacing-36);
+      margin-top: var(--spacing-36);
+    }
+    .wechat-stat .num {
+      font-size: 32px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-saffron-spark);
+    }
+    .wechat-stat .label {
+      font-size: 12px;
+      color: var(--color-ash-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+    .wechat-qrcode-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-18);
+    }
+    .wechat-qrcode-wrap img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    }
+    .wechat-qrcode-wrap .tip {
+      font-size: 13px;
+      color: var(--color-ash-gray);
+      text-align: center;
+    }
+
     /* ---------- 联系 ---------- */
     .contact { max-width: 720px; }
     .contact h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: var(--spacing-24); }
@@ -340,6 +403,8 @@
       .projects-head { margin-bottom: var(--spacing-60); }
       section { padding: var(--spacing-96) 0; }
       .container { padding: 0 24px; }
+      .wechat-card { grid-template-columns: 1fr; padding: var(--spacing-36); gap: var(--spacing-36); }
+      .wechat-stats { gap: var(--spacing-24); }
     }
     @media (max-width: 700px) {
       .nav-links {
@@ -376,12 +441,13 @@
             </defs>
             <path d="M9 1.5 L16.5 15 L1.5 15 Z" stroke="url(#lg)" stroke-width="1.5" fill="rgba(128,82,255,0.15)"/>
           </svg>
-          我的主页
+          郭一恒
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">关于</a></li>
           <li><a href="#skills">技能</a></li>
           <li><a href="#projects">项目</a></li>
+          <li><a href="#wechat">公众号</a></li>
           <li><a href="#contact">联系</a></li>
         </ul>
         <a href="#contact" class="btn nav-cta">联系我</a>
@@ -393,11 +459,11 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-copy">
-          <span class="eyebrow">Hello — Portfolio</span>
-          <h1 class="display">用代码与设计<br>创造价值</h1>
+          <span class="eyebrow">AI Product Manager</span>
+          <h1 class="display">用 AI 产品<br>创造真实价值</h1>
           <p class="lead">
-            一名热爱创造的开发者。我专注于打造简洁、优雅且有价值的作品，
-            用代码解决问题，用设计表达想法。
+            郭一恒，AI 产品经理。专注 ToB 方向 AI 产品落地，
+            对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验。
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn">查看作品</a>
@@ -417,24 +483,24 @@
             <h2 class="display">关于我</h2>
           </div>
           <div class="about-body">
-            我持续学习、不断成长，用技术创造长期价值。以下是我的一些经历与兴趣。
+            AI 产品经理，AI 从业者。当前团队专注 ToB 方向的 AI 产品落地，正在进行企业级项目对接。
           </div>
         </div>
         <div class="about-items">
           <div class="about-item">
-            <span class="label">Goal · 目标</span>
-            <h3>做出真正好用的产品</h3>
-            <p>持续学习、不断成长，用技术创造长期价值，解决真实世界的问题。</p>
+            <span class="label">Focus · 专注</span>
+            <h3>ToB 方向 AI 产品落地</h3>
+            <p>当前团队专注企业级 AI 产品对接与落地，推动 AI 技术在真实业务场景中创造价值。</p>
           </div>
           <div class="about-item">
             <span class="label">Experience · 经历</span>
-            <h3>多年项目开发经验</h3>
-            <p>参与过多个产品的设计与实现，积累了丰富的实战经验，覆盖从 0 到 1 的全过程。</p>
+            <h3>知乎黑客松优秀项目代表</h3>
+            <p>作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。</p>
           </div>
           <div class="about-item">
-            <span class="label">Interest · 兴趣</span>
-            <h3>保持对世界的好奇</h3>
-            <p>喜欢探索新技术、阅读、摄影与旅行，在创造与生活中寻找灵感。</p>
+            <span class="label">Expertise · 专长</span>
+            <h3>AI 产品从 0 到 1</h3>
+            <p>对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验，覆盖产品全生命周期。</p>
           </div>
         </div>
       </section>
@@ -446,16 +512,16 @@
           <h2 class="display">技能</h2>
         </div>
         <div class="skills-list">
-          <span class="skill-tag">HTML / CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Vue</span>
-          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">AI 产品设计</span>
+          <span class="skill-tag">ToB 产品落地</span>
+          <span class="skill-tag">需求分析</span>
+          <span class="skill-tag">用户研究</span>
+          <span class="skill-tag">项目管理</span>
+          <span class="skill-tag">数据分析</span>
           <span class="skill-tag">Python</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Figma</span>
           <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">跨团队协作</span>
         </div>
       </section>
 
@@ -468,34 +534,69 @@
 
         <div class="project">
           <div>
-            <h3 class="project-title">项目一</h3>
-            <p class="project-meta">01 · 工具应用</p>
+            <h3 class="project-title">ToB 企业级 AI 产品</h3>
+            <p class="project-meta">01 · 产品落地</p>
           </div>
           <div class="project-body">
-            <p>一个简洁高效的工具类应用，帮助用户快速完成日常任务，注重细节与交互体验。</p>
-            <a href="#" class="project-link">了解更多 →</a>
+            <p>当前团队专注 ToB 方向 AI 产品落地，负责企业级项目对接，推动 AI 技术在真实业务场景中落地应用。</p>
+            <a href="#contact" class="project-link">交流合作 →</a>
           </div>
         </div>
 
         <div class="project">
           <div>
-            <h3 class="project-title">项目二</h3>
-            <p class="project-meta">02 · 设计作品集</p>
+            <h3 class="project-title">知乎黑客松优秀项目</h3>
+            <p class="project-meta">02 · 创新竞赛</p>
           </div>
           <div class="project-body">
-            <p>一个注重体验的设计作品集网站，通过版式与留白呈现视觉与交互的细节。</p>
-            <a href="#" class="project-link">了解更多 →</a>
+            <p>作为知乎黑客松优秀项目代表，完成从创意到原型的快速迭代，展现 AI 产品从 0 到 1 的完整实践能力。</p>
+            <a href="#contact" class="project-link">了解更多 →</a>
           </div>
         </div>
 
         <div class="project">
           <div>
-            <h3 class="project-title">项目三</h3>
-            <p class="project-meta">03 · 数据可视化</p>
+            <h3 class="project-title">高校项目分享演讲</h3>
+            <p class="project-meta">03 · 知识分享</p>
           </div>
           <div class="project-body">
-            <p>一个数据可视化面板，将复杂的数据转化为清晰易懂、可交互的图表。</p>
-            <a href="#" class="project-link">了解更多 →</a>
+            <p>受邀前往中国人民大学、清华大学做项目分享演讲，将 AI 产品实践经验传递给更多对 AI 感兴趣的同学。</p>
+            <a href="#wechat" class="project-link">关注公众号 →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 公众号 -->
+      <section id="wechat">
+        <div class="wechat">
+          <span class="eyebrow">WeChat Official Account</span>
+          <h2 class="display">微信公众号</h2>
+          <p class="wechat-desc">
+            我在微信公众号「O叶小恒O」持续分享创作与思考，扫码关注，第一时间获取更新。
+          </p>
+          <div class="wechat-card">
+            <div class="wechat-info">
+              <h3>O叶小恒O</h3>
+              <p>分享技术、设计与生活的思考。用文字记录成长，用创作连接世界。</p>
+              <div class="wechat-stats">
+                <div class="wechat-stat">
+                  <div class="num">8</div>
+                  <div class="label">原创文章</div>
+                </div>
+                <div class="wechat-stat">
+                  <div class="num">24</div>
+                  <div class="label">订阅用户</div>
+                </div>
+                <div class="wechat-stat">
+                  <div class="num">249</div>
+                  <div class="label">单日阅读</div>
+                </div>
+              </div>
+            </div>
+            <div class="wechat-qrcode-wrap">
+              <img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" />
+              <p class="tip">微信扫码关注，或搜一搜「O叶小恒O」</p>
+            </div>
           </div>
         </div>
       </section>
@@ -506,12 +607,12 @@
           <span class="eyebrow">Contact</span>
           <h2 class="display">保持联系</h2>
           <p>
-            如果你有合作意向或想聊聊想法，欢迎随时联系我。
-            邮箱：<a class="contact-mail" href="mailto:your-email@example.com">your-email@example.com</a>
+            如果你有合作意向或想聊聊 AI 产品，欢迎随时联系我。
+            邮箱：<a class="contact-mail" href="mailto:guo131378@gmail.com">guo131378@gmail.com</a>
           </p>
           <div class="contact-actions">
-            <a href="mailto:your-email@example.com" class="btn">给我写信</a>
-            <a href="https://github.com/" target="_blank" rel="noopener" class="ghost-link">GitHub →</a>
+            <a href="mailto:guo131378@gmail.com" class="btn">给我写信</a>
+            <a href="https://github.com/Yiheng-guo" target="_blank" rel="noopener" class="ghost-link">GitHub →</a>
           </div>
         </div>
       </section>
@@ -519,7 +620,7 @@
 
     <footer>
       <div class="container">
-        <p>© <span id="year"></span> 我的个人网站 · 用心创造</p>
+        <p>© <span id="year"></span> 郭一恒 · AI Product Manager</p>
         <p>Constellation floating on black velvet.</p>
       </div>
     </footer>
