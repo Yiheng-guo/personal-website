@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="个人网站 - 展示我的作品、技能与联系方式" />
-  <title>我的个人网站</title>
+  <meta name="description" content="AI 产品经理，专注 ToB 方向的 AI 产品落地。分享产品从 0 到 1 的实践、学习笔记与实战教程。" />
+  <title>郭一恒 | AI 产品经理 · ToB 产品落地</title>
   <style>
     :root {
       /* Colors */
@@ -263,69 +263,6 @@
     }
     .project-link:hover { text-decoration: underline; }
 
-    /* ---------- 公众号 ---------- */
-    .wechat { max-width: 900px; }
-    .wechat h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: var(--spacing-24); }
-    .wechat-desc { font-size: 18px; font-weight: var(--font-weight-extralight); color: var(--color-silver-mist); line-height: 1.7; margin-bottom: var(--spacing-60); max-width: 560px; }
-    .wechat-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: var(--spacing-60);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-60);
-      align-items: center;
-    }
-    .wechat-info h3 {
-      font-size: 28px;
-      font-weight: var(--font-weight-regular);
-      color: var(--color-bone-white);
-      margin-bottom: var(--spacing-18);
-      letter-spacing: -0.02em;
-    }
-    .wechat-info p {
-      font-size: 16px;
-      font-weight: var(--font-weight-extralight);
-      color: var(--color-ash-gray);
-      line-height: 1.7;
-      margin-bottom: var(--spacing-24);
-    }
-    .wechat-stats {
-      display: flex;
-      gap: var(--spacing-36);
-      margin-top: var(--spacing-36);
-    }
-    .wechat-stat .num {
-      font-size: 32px;
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-saffron-spark);
-    }
-    .wechat-stat .label {
-      font-size: 12px;
-      color: var(--color-ash-gray);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 4px;
-    }
-    .wechat-qrcode-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-18);
-    }
-    .wechat-qrcode-wrap img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 16px;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-    }
-    .wechat-qrcode-wrap .tip {
-      font-size: 13px;
-      color: var(--color-ash-gray);
-      text-align: center;
-    }
-
     /* ---------- 联系 ---------- */
     .contact { max-width: 720px; }
     .contact h2 { font-size: clamp(40px, 6vw, 72px); margin-bottom: var(--spacing-24); }
@@ -403,8 +340,6 @@
       .projects-head { margin-bottom: var(--spacing-60); }
       section { padding: var(--spacing-96) 0; }
       .container { padding: 0 24px; }
-      .wechat-card { grid-template-columns: 1fr; padding: var(--spacing-36); gap: var(--spacing-36); }
-      .wechat-stats { gap: var(--spacing-24); }
     }
     @media (max-width: 700px) {
       .nav-links {
@@ -420,6 +355,68 @@
       .menu-toggle { display: block; }
       .nav-cta { margin-left: 0; }
     }
+
+    /* 内容空间：沿用原站黑底、紫色与金色 */
+    body { font-weight: 400; }
+    header { background: rgba(0,0,0,.90); backdrop-filter: blur(16px); }
+    section, .anchor-alias { scroll-margin-top: 105px; }
+    .site { z-index: 5; }
+    #dim-overlay { display: none; }
+    #rain-canvas, #light-canvas { opacity: .28; }
+    .rain-off #rain-canvas, .rain-off #light-canvas { opacity: 0; }
+    .hero > * { min-width: 0; }
+    .hero-visual { overflow: hidden; }
+    .hero-copy h1 { font-size: clamp(40px, 6vw, 76px); line-height: 1.18; }
+    .hero-copy .lead, .about-body, .project-body p, .contact p { font-weight: 400; }
+    .nav-links { gap: 22px; }
+    .logo { white-space: nowrap; }
+    .about-items { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .about-item p { font-weight: 400; }
+    .section-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:48px; }
+    .section-heading h2 { font-size:clamp(34px,4.5vw,56px); line-height:1.2; }
+    .section-heading > p { max-width:340px; color:var(--color-silver-mist); font-size:16px; line-height:1.8; }
+    .section-heading .eyebrow { margin-bottom:18px; }
+    .note-list { border-top:1px solid #303030; }
+    .note { border-bottom:1px solid #303030; background:rgba(0,0,0,.72); }
+    .note summary { display:grid; grid-template-columns:42px 1fr 24px; gap:20px; align-items:center; cursor:pointer; padding:30px 16px; list-style:none; }
+    summary::-webkit-details-marker { display:none; }
+    .note-number { color:var(--color-ash-gray); font-size:14px; }
+    .content-label { display:block; color:#b6a0ff; font-size:14px; margin-bottom:12px; }
+    .note strong { display:block; font-size:22px; font-weight:500; line-height:1.5; }
+    .expand-icon { color:var(--color-saffron-spark); font-size:26px; transition:transform .2s; }
+    .note[open] .expand-icon { transform:rotate(45deg); }
+    .note-content { padding:0 60px 36px 78px; max-width:940px; color:#c9c9c9; font-size:16px; line-height:1.9; }
+    .note-content ol { padding-left:22px; margin:20px 0; }
+    .note-content li + li { margin-top:10px; }
+    .note-content b { color:#eee; font-weight:500; }
+    .practice-box { border-left:2px solid #8052ff; background:#141019; padding:18px 22px; }
+    .practice-box p { margin-top:6px; }
+    .project { border-top:1px solid #303030; }
+    .project-title { line-height:1.2; }
+    .project-detail { color:#c9c9c9; }
+    .project-detail summary { color:#ffb829; font-size:16px; cursor:pointer; padding:8px 0; }
+    .project-detail div { margin-top:16px; }
+    .project-detail p { font-size:16px; }
+    .resource-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+    .resource-card { display:flex; flex-direction:column; border:1px solid #333; background:rgba(12,12,16,.94); padding:30px; border-radius:12px; }
+    .resource-card h3 { font-size:28px; font-weight:500; line-height:1.45; margin:16px 0; }
+    .resource-card p { color:#bdbdbd; font-size:16px; line-height:1.8; margin-bottom:32px; }
+    .resource-card a { margin-top:auto; padding-top:20px; border-top:1px solid #303030; color:#ffb829; font-size:14px; }
+    .resource-card a:hover { text-decoration:underline; }
+    .section-footnote { margin-top:28px; color:#9a9a9a; font-size:14px; line-height:1.8; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:2px solid #ffb829; outline-offset:6px; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media(max-width:1050px) { .nav-links { gap:16px; } .nav-cta { display:none; } }
+    @media(max-width:900px) { .hero-visual { height:220px; order:0; } .hero { min-height:auto; } .resource-grid { grid-template-columns:1fr; } .resource-card h3 br { display:none; } .about-items { grid-template-columns:1fr; gap:28px; } }
+    @media(max-width:700px) { .section-heading { display:block; } .section-heading > p { margin-top:22px; } .note summary { grid-template-columns:24px 1fr 20px; gap:12px; padding:24px 0; } .note strong { font-size:19px; } .note-content { padding:0 0 28px 0; } .hero-copy h1 { font-size:clamp(32px,8.7vw,56px); } .hero { padding-top:48px; } section { padding:72px 0; } .resource-card { padding:26px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none!important; } #bg-canvas, #hero-canvas, #rain-canvas, #light-canvas { display:none; } .hero-visual { display:none; } }
+    .education-line { margin-top:24px; color:#b6a0ff; font-size:16px; }
+    .social-panel { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:60px; align-items:center; padding:36px; background:#101014; border:1px solid #303030; border-radius:16px; }
+    .social-panel h3 { font-size:26px; font-weight:500; margin-bottom:18px; }
+    .social-panel p { font-size:16px; color:#bdbdbd; line-height:1.8; }
+    .social-panel img { display:block; width:100%; max-width:280px; height:auto; border-radius:12px; }
+    .personal-qr figcaption { font-size:14px; color:#bdbdbd; margin-top:16px; }
+    @media(max-width:700px) { .social-panel { grid-template-columns:minmax(0,1fr); padding:24px; gap:36px; } .contact-mail { overflow-wrap:anywhere; } }
   </style>
 </head>
 <body>
@@ -441,17 +438,17 @@
             </defs>
             <path d="M9 1.5 L16.5 15 L1.5 15 Z" stroke="url(#lg)" stroke-width="1.5" fill="rgba(128,82,255,0.15)"/>
           </svg>
-          郭一恒
+          郭一恒 / AI 产品经理
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">关于</a></li>
-          <li><a href="#skills">技能</a></li>
-          <li><a href="#projects">项目</a></li>
-          <li><a href="#wechat">公众号</a></li>
+          <li><a href="#notes">学习笔记</a></li>
+          <li><a href="#projects">项目作品</a></li>
+          <li><a href="#tutorials">实战教程</a></li>
           <li><a href="#contact">联系</a></li>
         </ul>
         <a href="#contact" class="btn nav-cta">联系我</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false" aria-controls="navLinks">☰</button>
       </nav>
     </header>
 
@@ -459,15 +456,14 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-copy">
-          <span class="eyebrow">AI Product Manager</span>
-          <h1 class="display">用 AI 产品<br>创造真实价值</h1>
+          <span class="eyebrow">AI Product Manager / ToB</span>
+          <h1 class="display">让 AI 走进<br>真实业务。</h1>
           <p class="lead">
-            郭一恒，AI 产品经理。专注 ToB 方向 AI 产品落地，
-            对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验。
+            我是郭一恒，一名 AI 产品经理、AI 从业者，专注 ToB 方向的 AI 产品落地，目前正在进行企业级项目对接。在这里，分享产品从 0 到 1 的实践与思考。
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn">查看作品</a>
-            <a href="#contact" class="ghost-link">联系我 →</a>
+            <a href="#notes" class="ghost-link">阅读学习笔记 →</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -483,145 +479,120 @@
             <h2 class="display">关于我</h2>
           </div>
           <div class="about-body">
-            AI 产品经理，AI 从业者。当前团队专注 ToB 方向的 AI 产品落地，正在进行企业级项目对接。
+            此前作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验。<p class="education-line">湖北大学 · 大数据管理与应用 · 2022—2026</p>
           </div>
         </div>
         <div class="about-items">
           <div class="about-item">
-            <span class="label">Focus · 专注</span>
-            <h3>ToB 方向 AI 产品落地</h3>
-            <p>当前团队专注企业级 AI 产品对接与落地，推动 AI 技术在真实业务场景中创造价值。</p>
+            <span class="label">Focus · 专注方向</span>
+            <h3>ToB AI 产品落地</h3>
+            <p>关注企业业务中的实际问题，推动 AI 能力与产品场景结合，目前正在进行企业级项目对接。</p>
           </div>
           <div class="about-item">
-            <span class="label">Experience · 经历</span>
-            <h3>知乎黑客松优秀项目代表</h3>
-            <p>作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。</p>
+            <span class="label">Practice · 产品实践</span>
+            <h3>从 0 到 1 的完整实践</h3>
+            <p>覆盖 AI 产品的设计、开发与落地，将产品想法推进为可以交付和验证的成果。</p>
           </div>
           <div class="about-item">
-            <span class="label">Expertise · 专长</span>
-            <h3>AI 产品从 0 到 1</h3>
-            <p>对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验，覆盖产品全生命周期。</p>
+            <span class="label">Sharing · 分享交流</span>
+            <h3>让实践经验被看见</h3>
+            <p>作为知乎黑客松优秀项目代表，受邀在中国人民大学、清华大学进行项目分享演讲。</p>
           </div>
         </div>
       </section>
 
-      <!-- 技能 -->
-      <section id="skills">
-        <div class="skills-head">
-          <span class="eyebrow">Skills</span>
-          <h2 class="display">技能</h2>
+      <!-- 学习笔记：站内入门提纲，不代表个人实测记录 -->
+      <section id="notes" aria-labelledby="notes-title">
+        <span id="skills" class="anchor-alias"></span>
+        <div class="section-heading">
+          <div><span class="eyebrow">01 / Field notes</span><h2 class="display" id="notes-title">学习笔记</h2></div>
+          <p>从一个具体问题开始。展开提纲，带着自己的任务练习。</p>
         </div>
-        <div class="skills-list">
-          <span class="skill-tag">AI 产品设计</span>
-          <span class="skill-tag">ToB 产品落地</span>
-          <span class="skill-tag">需求分析</span>
-          <span class="skill-tag">用户研究</span>
-          <span class="skill-tag">项目管理</span>
-          <span class="skill-tag">数据分析</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">跨团队协作</span>
+        <div class="note-list">
+          <details class="note" id="note-task">
+            <summary><span class="note-number">01</span><span><span class="content-label">需求表达 · 入门提纲</span><strong>怎样把一个想法，说成 AI 能执行的任务？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
+            <div class="note-content">
+              <p>先写清楚你要拿到什么。例如，“帮我做个网站”可以缩小成“给已有个人网站增加学习笔记区，保持原有风格，手机上也能阅读”。</p>
+              <ol><li><b>提供材料：</b>现有文件、参考页面，以及需要沿用的文字和图片。</li><li><b>圈定这次改动：</b>明确要增加什么，哪些信息还需要你补充。</li><li><b>约定完成标准：</b>导航能到达、内容能打开、窄屏不被裁切。</li></ol>
+              <div class="practice-box"><b>动手练习</b><p>挑一个你想做的小工具，用三句话写清使用者、要解决的问题和最终交付物。检查有没有需要 AI 猜测的个人信息。</p></div>
+            </div>
+          </details>
+          <details class="note" id="note-check">
+            <summary><span class="note-number">02</span><span><span class="content-label">项目验收 · 入门提纲</span><strong>AI 说“完成了”，接下来应该检查什么？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
+            <div class="note-content">
+              <p>把页面打开，从访客的角度走一遍。检查结果时，最好使用最初写下的需求，而不是只看生成后的说明。</p>
+              <ol><li><b>走主流程：</b>从首页点击到内容，再回到首页；每个入口都应该有明确去处。</li><li><b>试边界情况：</b>文字很长、屏幕很窄、没有填写内容时，页面是否还能使用。</li><li><b>核对事实：</b>经历、数据、链接和联系方式要能找到依据；示例不应当作真实成果。</li></ol>
+              <div class="practice-box"><b>动手练习</b><p>为一个页面写下三条“我点击什么、应当看到什么”的检查步骤，再用手机实际操作一次。</p></div>
+            </div>
+          </details>
+          <details class="note" id="note-record">
+            <summary><span class="note-number">03</span><span><span class="content-label">知识整理 · 入门提纲</span><strong>一次实践之后，留下什么才方便下次继续？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
+            <div class="note-content">
+              <p>一条有用的笔记，应当让过一段时间的自己知道当时为什么做、现在做到哪里，以及下一步要做什么。</p>
+              <ol><li><b>背景：</b>记录具体问题和当时使用的材料。</li><li><b>过程与证据：</b>保留关键步骤、实际结果和对应文件；把推测与验证过的结论分开。</li><li><b>剩余问题：</b>写下未解决的限制和下一步，避免把未完成工作误记为完成。</li></ol>
+              <div class="practice-box"><b>动手练习</b><p>用“问题 / 做法 / 结果 / 待验证”四个小标题，记录今天的一次 AI 使用过程。</p></div>
+            </div>
+          </details>
         </div>
       </section>
 
       <!-- 项目 -->
-      <section id="projects">
-        <div class="projects-head">
-          <span class="eyebrow">Work</span>
-          <h2 class="display">项目作品</h2>
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div><span class="eyebrow">02 / Selected work</span><h2 class="display" id="projects-title">项目作品</h2></div>
+          <p>从产品设计到开发落地，记录可以公开的实践。</p>
         </div>
-
-        <div class="project">
-          <div>
-            <h3 class="project-title">ToB 企业级 AI 产品</h3>
-            <p class="project-meta">01 · 产品落地</p>
-          </div>
+        <article class="project">
+          <div><h3 class="project-title">企业官网<br>与智能客服</h3><p class="project-meta">01 · 郑州奎达工程技术服务有限公司 · 独立交付</p></div>
+          <div class="project-body"><p>面向工程造价咨询、招投标代理等业务，独立完成企业官网及智能客服，提供业务展示与在线咨询入口。</p><p>将企业信息整理为业务范围、服务流程、常见问题与联系方式等模块，围绕资料清单、收费方式和交付周期等咨询主题提供信息，并引导复杂问题联系专人。</p><a href="https://zzkuida.com/" target="_blank" rel="noopener noreferrer" class="project-link">访问企业官网 ↗</a></div>
+        </article>
+        <article class="project">
+          <div><h3 class="project-title">知乎黑客松<br>项目实践</h3><p class="project-meta">02 · 优秀项目代表 · 高校分享</p></div>
+          <div class="project-body"><p>完成 AI 产品从 0 到 1 的设计、开发与落地实践，并作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。</p><p class="section-footnote">项目详情与分享资料将在整理后公开。</p></div>
+        </article>
+        <article class="project">
+          <div><h3 class="project-title">个人 AI<br>实践空间</h3><p class="project-meta">03 · 个人网站 · 持续更新</p></div>
           <div class="project-body">
-            <p>当前团队专注 ToB 方向 AI 产品落地，负责企业级项目对接，推动 AI 技术在真实业务场景中落地应用。</p>
-            <a href="#contact" class="project-link">交流合作 →</a>
+            <p>你正在浏览的这个网站。将个人介绍、学习笔记、项目展示和教程阅读连接起来，保留黑底、紫色与粒子的视觉风格。</p>
+            <details class="project-detail"><summary>查看项目说明</summary><div><p>使用 HTML、CSS 和 JavaScript 构建。学习提纲可直接展开，精选教程链接到原作者页面；无需注册即可阅读。</p><p>网站源码保存在 GitHub，可查看版本记录与后续更新。<a href="https://github.com/Yiheng-guo/personal-website" target="_blank" rel="noopener noreferrer" class="project-link">查看源码 ↗</a></p></div></details>
           </div>
-        </div>
-
-        <div class="project">
-          <div>
-            <h3 class="project-title">知乎黑客松优秀项目</h3>
-            <p class="project-meta">02 · 创新竞赛</p>
-          </div>
-          <div class="project-body">
-            <p>作为知乎黑客松优秀项目代表，完成从创意到原型的快速迭代，展现 AI 产品从 0 到 1 的完整实践能力。</p>
-            <a href="#contact" class="project-link">了解更多 →</a>
-          </div>
-        </div>
-
-        <div class="project">
-          <div>
-            <h3 class="project-title">高校项目分享演讲</h3>
-            <p class="project-meta">03 · 知识分享</p>
-          </div>
-          <div class="project-body">
-            <p>受邀前往中国人民大学、清华大学做项目分享演讲，将 AI 产品实践经验传递给更多对 AI 感兴趣的同学。</p>
-            <a href="#wechat" class="project-link">关注公众号 →</a>
-          </div>
-        </div>
+        </article>
+        <p class="section-footnote">其他项目将在补充真实介绍、作品链接和实践记录后收录。</p>
       </section>
 
-      <!-- 公众号 -->
+      <!-- 外部精选教程：仅链接，不转载原站文章 -->
+      <section id="tutorials" aria-labelledby="tutorials-title">
+        <div class="section-heading">
+          <div><span class="eyebrow">03 / Learning resources</span><h2 class="display" id="tutorials-title">实战教程</h2></div>
+          <p>精选外部阅读。教程由 LearnPrompt 提供，在原站查看完整内容。</p>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card"><span class="content-label">01 / 从想法开始</span><h3>把需求变成<br>可运行的 MVP</h3><p>适合已经有一个想法，但还不知道怎样拆出第一步的时候阅读。</p><a href="https://www.learnprompt.pro/ai-coding/natural-language-to-mvp/" target="_blank" rel="noopener noreferrer">阅读 LearnPrompt 教程 <span aria-hidden="true">↗</span><span class="sr-only">（在新标签页打开）</span></a></article>
+          <article class="resource-card"><span class="content-label">02 / 把流程留下</span><h3>编写第一个<br>SKILL.md</h3><p>当同一种工作反复出现时，了解如何把步骤整理成可复用的技能。</p><a href="https://www.learnprompt.pro/agent-skills/first-skill-md/" target="_blank" rel="noopener noreferrer">阅读 LearnPrompt 教程 <span aria-hidden="true">↗</span><span class="sr-only">（在新标签页打开）</span></a></article>
+          <article class="resource-card"><span class="content-label">03 / 找到下一步</span><h3>探索 AI<br>实战学习路径</h3><p>按当前遇到的问题，寻找 AI 编程、Agent 与知识管理的学习入口。</p><a href="https://www.learnprompt.pro/" target="_blank" rel="noopener noreferrer">浏览 LearnPrompt <span aria-hidden="true">↗</span><span class="sr-only">（在新标签页打开）</span></a></article>
+        </div>
+        <p class="section-footnote">外部教程著作权归原作者所有；本栏为阅读推荐，不代表本站原创或与原作者存在合作关系。</p>
+      </section>
+
+      <!-- 公众号：保留原站入口 -->
       <section id="wechat">
-        <div class="wechat">
-          <span class="eyebrow">WeChat Official Account</span>
-          <h2 class="display">微信公众号</h2>
-          <p class="wechat-desc">
-            我在微信公众号「O叶小恒O」持续分享创作与思考，扫码关注，第一时间获取更新。
-          </p>
-          <div class="wechat-card">
-            <div class="wechat-info">
-              <h3>O叶小恒O</h3>
-              <p>分享技术、设计与生活的思考。用文字记录成长，用创作连接世界。</p>
-              <div class="wechat-stats">
-                <div class="wechat-stat">
-                  <div class="num">8</div>
-                  <div class="label">原创文章</div>
-                </div>
-                <div class="wechat-stat">
-                  <div class="num">24</div>
-                  <div class="label">订阅用户</div>
-                </div>
-                <div class="wechat-stat">
-                  <div class="num">249</div>
-                  <div class="label">单日阅读</div>
-                </div>
-              </div>
-            </div>
-            <div class="wechat-qrcode-wrap">
-              <img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" />
-              <p class="tip">微信扫码关注，或搜一搜「O叶小恒O」</p>
-            </div>
-          </div>
-        </div>
+        <div class="section-heading"><div><span class="eyebrow">Writing / 公众号</span><h2 class="display">O叶小恒O</h2></div><p>分享创作与思考，用文字记录学习与实践。</p></div>
+        <div class="social-panel"><div><h3>在公众号继续交流</h3><p>微信扫码关注，或搜一搜「O叶小恒O」。</p></div><a href="images/wechat-qrcode.png" target="_blank" rel="noopener" aria-label="查看公众号二维码原图"><img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" width="260" loading="lazy"></a></div>
       </section>
-
       <!-- 联系 -->
       <section id="contact">
-        <div class="contact">
-          <span class="eyebrow">Contact</span>
-          <h2 class="display">保持联系</h2>
-          <p>
-            如果你有合作意向或想聊聊 AI 产品，欢迎随时联系我。
-            邮箱：<a class="contact-mail" href="mailto:guo131378@gmail.com">guo131378@gmail.com</a>
-          </p>
-          <div class="contact-actions">
-            <a href="mailto:guo131378@gmail.com" class="btn">给我写信</a>
-            <a href="https://github.com/Yiheng-guo" target="_blank" rel="noopener" class="ghost-link">GitHub →</a>
-          </div>
+        <div class="section-heading"><div><span class="eyebrow">Contact</span><h2 class="display">聊聊你的业务场景</h2></div></div>
+        <div class="social-panel">
+          <div class="contact"><p>欢迎交流企业 AI 应用场景、ToB 产品落地与项目合作。</p><p><a class="contact-mail" href="mailto:guo131378@gmail.com">guo131378@gmail.com</a><br><a href="tel:+8619839706688">198 3970 6688</a></p><div class="contact-actions"><a href="mailto:guo131378@gmail.com" class="btn">邮件联系</a><a href="https://github.com/Yiheng-guo" target="_blank" rel="noopener noreferrer" class="ghost-link">GitHub ↗</a></div></div>
+          <figure class="personal-qr"><a href="images/wechat-personal.png" target="_blank" rel="noopener" aria-label="查看个人微信二维码原图"><img src="images/wechat-personal.png" alt="郭一恒的个人微信二维码，扫码添加好友" width="280" height="416" loading="lazy"></a><figcaption>微信扫码添加好友 · 点击查看原图</figcaption></figure>
         </div>
       </section>
     </main>
 
     <footer>
       <div class="container">
-        <p>© <span id="year"></span> 郭一恒 · AI Product Manager</p>
-        <p>Constellation floating on black velvet.</p>
+        <p>© <span id="year"></span> 郭一恒 · AI 产品经理</p>
+        <p>学习 · 实践 · 记录</p>
       </div>
     </footer>
   </div>
@@ -795,8 +766,9 @@
     // ===== UI =====
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    menuToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); }));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape' && navLinks.classList.contains('open')) { navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.focus(); } });
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
