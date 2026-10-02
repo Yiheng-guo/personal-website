@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI 产品经理，专注 AI 产品落地。分享产品从 0 到 1 的实践、学习笔记与实战教程。" />
+  <meta name="description" content="郭一恒，AI 产品经理。快看漫画 AIGC 实习、企业 Agent 交付、知乎黑客松、AI 短剧制作与开源工具实践。" />
   <title>郭一恒 | AI 产品经理 · AI 产品落地</title>
   <style>
     :root {
@@ -417,6 +417,25 @@
     .social-panel img { display:block; width:100%; max-width:280px; height:auto; border-radius:12px; }
     .personal-qr figcaption { font-size:14px; color:#bdbdbd; margin-top:16px; }
     @media(max-width:700px) { .social-panel { grid-template-columns:minmax(0,1fr); padding:24px; gap:36px; } .contact-mail { overflow-wrap:anywhere; } }
+
+    .skill-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .skill-tags span { border:1px solid #393042; border-radius:999px; padding:7px 12px; font-size:13px; color:#d0bcff; background:#15101f; }
+    .experience-card { background:rgba(15,15,20,.92); border:1px solid #303030; border-radius:16px; padding:32px; margin-bottom:22px; }
+    .experience-top { display:flex; justify-content:space-between; gap:20px; align-items:baseline; }
+    .experience-card h3 { font-size:26px; line-height:1.5; font-weight:500; }
+    .experience-top span { color:#a7a7a7; white-space:nowrap; font-size:14px; }
+    .experience-card p { color:#c9c9c9; font-size:17px; line-height:1.85; margin:16px 0; }
+    .experience-card .role-label { color:#b6a0ff; font-size:14px; }
+    .case-metrics { display:flex; flex-wrap:wrap; gap:10px; margin:24px 0; }
+    .case-metrics span { border:1px solid #44341b; padding:9px 13px; border-radius:8px; color:#ffcb73; font-size:14px; background:#1a150c; }
+    .project-links { display:flex; flex-wrap:wrap; gap:12px 24px; margin-top:24px; }
+    .project-links a { font-size:15px; color:#ffb829; text-decoration:none; }
+    .project-links a:hover { text-decoration:underline; }
+    .project-detail b { color:#f2f2f2; font-weight:500; }
+    .talk-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .talk-grid .experience-card { margin:0; }
+    article[id] { scroll-margin-top:110px; }
+    @media(max-width:700px) { .experience-top { display:block; } .experience-card { padding:24px; } .experience-top span { display:block; margin-top:8px; } .talk-grid { grid-template-columns:1fr; } .project-title { font-size:34px; } }
   </style>
 </head>
 <body>
@@ -442,9 +461,9 @@
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">关于</a></li>
-          <li><a href="#notes">学习笔记</a></li>
+          <li><a href="#experience">工作经历</a></li>
           <li><a href="#projects">项目作品</a></li>
-          <li><a href="#tutorials">实战教程</a></li>
+          <li><a href="#notes">方法沉淀</a></li>
           <li><a href="#contact">联系</a></li>
         </ul>
         <a href="#contact" class="btn nav-cta">联系我</a>
@@ -459,11 +478,11 @@
           <span class="eyebrow">AI Product Manager</span>
           <h1 class="display">让 AI 走进<br>真实业务。</h1>
           <p class="lead">
-            我是郭一恒，一名 AI 产品经理、AI 从业者，专注 AI 产品落地，目前正在进行企业级项目对接。在这里，分享产品从 0 到 1 的实践与思考。
+            我是郭一恒，AI 产品经理。从 AIGC 创作实习到企业 Agent 交付，从黑客松组队到独立工具开发，我关注的是：找到真实需求，把模型能力变成可用的产品。
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn">查看作品</a>
-            <a href="#notes" class="ghost-link">阅读学习笔记 →</a>
+            <a href="#notes" class="ghost-link">阅读方法沉淀 →</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -471,95 +490,28 @@
         </div>
       </section>
 
-      <!-- 关于 -->
       <section id="about">
-        <div class="about-grid">
-          <div>
-            <span class="eyebrow">About</span>
-            <h2 class="display">关于我</h2>
-          </div>
-          <div class="about-body">
-            此前作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。对 AI 产品从 0 到 1 的设计、开发与落地有完整实践经验。<p class="education-line">湖北大学 · 大数据管理与应用</p>
-          </div>
-        </div>
-        <div class="about-items">
-          <div class="about-item">
-            <span class="label">Focus · 专注方向</span>
-            <h3>AI 产品落地</h3>
-            <p>关注企业业务中的实际问题，推动 AI 能力与产品场景结合，目前正在进行企业级项目对接。</p>
-          </div>
-          <div class="about-item">
-            <span class="label">Practice · 产品实践</span>
-            <h3>从 0 到 1 的完整实践</h3>
-            <p>覆盖 AI 产品的设计、开发与落地，将产品想法推进为可以交付和验证的成果。</p>
-          </div>
-          <div class="about-item">
-            <span class="label">Sharing · 分享交流</span>
-            <h3>让实践经验被看见</h3>
-            <p>作为知乎黑客松优秀项目代表，受邀在中国人民大学、清华大学进行项目分享演讲。</p>
-          </div>
-        </div>
+        <div class="about-grid"><div><span class="eyebrow">About / 郭一恒</span><h2 class="display">从需求出发，<br>把交付做完整。</h2></div><div class="about-body"><p>湖北大学大数据管理与应用专业毕业。在快看漫画参与 AIGC 产品探索；通过校企合作，为郑州奎达独立交付官网与智能客服。作为队长带领 5 人团队进入知乎黑客松决赛，并受邀赴清华大学、中国人民大学分享项目经验。</p><p class="education-line">湖北大学 · 本科 · 2022—2026</p><div class="skill-tags"><span>AI 产品 0—1</span><span>To B 企业交付</span><span>AIGC 内容产品</span><span>Agent 工作流</span><span>模型评测</span><span>Prompt 设计</span><span>用户研究</span><span>竞品分析</span><span>数据驱动决策</span><span>跨职能协作</span></div></div></div>
+        <div class="about-items"><div class="about-item"><span class="label">Delivery / 企业交付</span><h3>把模糊诉求变成可用服务</h3><p>直接对接企业负责人，明确咨询场景、证据要求与人工兜底，独立完成官网、客服和知识库框架，取得 2 万元项目服务收入。</p></div><div class="about-item"><span class="label">Creation / 内容与评测</span><h3>把生成过程变成可控流程</h3><p>围绕人物逻辑、分镜一致性、任务完成度和预算做评测，通过人工确认与局部修订处理失败案例，沉淀工作台和制作 SOP。</p></div><div class="about-item"><span class="label">Leadership / 团队推进</span><h3>在有限时间内做出取舍</h3><p>组队、收敛需求、撰写 PRD、对齐技术可行性、组织评审与演示，推动 5 人团队在 48 小时内交付可玩的互动叙事作品。</p></div></div>
       </section>
-
+      <section id="experience" aria-labelledby="experience-title"><div class="section-heading"><div><span class="eyebrow">Experience / 工作经历</span><h2 id="experience-title" class="display">在真实场景里做产品</h2></div><p>从内容创作探索，到传统企业的 AI 应用交付。</p></div>
+        <article class="experience-card"><div class="experience-top"><h3>快看漫画</h3><span>2026.03—2026.05</span></div><p class="role-label">AI 产品经理实习生 · AIGC 方向</p><p>参与角色互动、剧情体验与 AI 辅助创作的场景研究，承担竞品分析、模型评测、Prompt 设计、Agent 流程探索与团队分享，向直属 AI 业务负责人同步实测结论和优化建议。</p><p>将剧本任务完成度、人物行为逻辑、情节连贯性和预算作为评测条件，分析集数缺失、角色降智与超预算案例；在剧本审核、分镜确认和局部修改环节保留创作者控制权。</p><details class="project-detail"><summary>创作流程如何沉淀为“漫序”工作台？</summary><div><p>将实习中的方法沉淀为角色档案、逐镜编辑、素材替换、旁白字幕和成片导出的工作台，并在后续模型更新后迭代。当前版本形成 13 项功能需求、23 项验收用例，完成 30 秒、1280×720 示例成片验证。</p><p>沿“需求输入—剧本确认—角色与场景准备—分镜生成—预览导出”拆解 OiiOii，研究局部修改、生成状态及依赖校验，为工作台交互与验收提供参考。</p></div></details><div class="project-links"><a href="https://github.com/Yiheng-guo/manxu-studio" target="_blank" rel="noopener noreferrer">漫序开源代码 ↗</a><a href="https://github.com/Yiheng-guo/model-eval-workflow" target="_blank" rel="noopener noreferrer">模型评测工作流 ↗</a></div></article>
+        <article class="experience-card"><div class="experience-top"><h3>郑州奎达工程技术服务有限公司</h3><span>2026</span></div><p class="role-label">AI 技术顾问 · LI-T 工作室校企合作</p><p>直接对接企业负责人，将“24 小时智能客服”梳理为非工作时段咨询承接、业务知识沉淀与专业人员对接。发现企业缺少官网后，将官网和在线咨询入口一并纳入交付。</p><p>独立完成 Dify Agent、RAG 框架、Bocha Search 接入、官网与部署；在同类测试问题口径下，系统提示词长度降低 17.7%，总输入 Token 降低 19.8%，实现 2 万元项目服务收入。</p><a class="project-link" href="#case-kuida">查看交付案例 ↓</a></article>
+      </section>
+      <section id="projects" aria-labelledby="projects-title"><div class="section-heading"><div><span class="eyebrow">Selected work / 项目作品</span><h2 class="display" id="projects-title">判断、推进与交付</h2></div><p>展开案例，了解我如何定义问题、做取舍，并把方案推进到可体验的成果。</p></div><article class="project" id="case-kuida"><div><h3 class="project-title">奎达官网<br>与智能客服</h3><p class="project-meta">01 / To B · AI 技术顾问 · 独立交付</p></div><div class="project-body"><p>传统工程服务企业没有专门客服，也缺少对外展示入口。我将咨询承接、知识沉淀与专业人员对接整合为官网上的 24 小时业务问答服务。</p><div class="case-metrics"><span>2 万元服务收入</span><span>输入 Token −19.8%</span><span>官网与客服上线</span></div><details class="project-detail"><summary>查看我的判断、动作与交付</summary><div><p><b>需求判断：</b>服务的重点是承接咨询并引导联系专业造价师，而不是替代工程报价和专业判断。</p><p><b>产品动作：</b>使用 Dify、DeepSeek、RAG 与 Bocha Search，连接企业资料和公开信息；材料价格回答明确地区、规格、时间与来源，仅提供参考区间，资料不足时引导电话咨询。</p><p><b>交付与维护：</b>完成域名、官网、客服嵌入和知识库框架，企业可持续补充资料。同类测试中系统提示词长度降低 17.7%。</p></div></details><div class="project-links"><a href="https://zzkuida.com/" target="_blank" rel="noopener noreferrer">访问官网与在线咨询 ↗</a></div></div></article>
+<article class="project" id="case-weiwan"><div><h3 class="project-title">未完之页</h3><p class="project-meta">02 / 知乎黑客松 · 队长 / AI 产品经理 · 2026</p></div><div class="project-body"><p>以大学阶段的人生选择为切入点，让玩家做选择、获得剧情反馈，并完成一次有始有终的互动叙事体验。</p><div class="case-metrics"><span>5 人团队</span><span>48 小时交付</span><span>进入决赛 · 上千人次体验</span></div><details class="project-detail"><summary>查看我的判断、动作与交付</summary><div><p><b>选题与范围：</b>从知乎人生遗憾讨论中找到切入点，将男女双主角、多角色独立故事收敛为一条大学主线，先保证核心路径走通。</p><p><b>推进动作：</b>组队并撰写 PRD，确定用户路径、剧情规则和交付边界；与开发确认可行性，协调前后端交互、评审和最终演示。</p><p><b>体验取舍：</b>实现基于玩家选择的 Agent 剧情生成、流式呈现与动态配图；军训、校园活动等固定场景复用预生成图片，需要表现选择差异的场景保留动态生成，减少等待对剧情体验的打断。</p><p><b>成果：</b>带队进入决赛，项目获活动官方推文及宣传片报道，受邀赴清华大学、中国人民大学分享。公开演示、开源代码与参赛复盘分别提供体验和项目资料。</p></div></details><div class="project-links"><a href="https://s2m4hen5n9jubjs1gsumk.apigateway-cn-beijing.volceapi.com/" target="_blank" rel="noopener noreferrer">公开演示 ↗</a><a href="https://github.com/Yiheng-guo/weiwan-campus" target="_blank" rel="noopener noreferrer">开源代码 ↗</a><a href="https://mp.weixin.qq.com/s/FSyrZgyOTqOipx6KPu8NKA" target="_blank" rel="noopener noreferrer">公众号参赛复盘 ↗</a></div></div></article>
+<article class="project" id="case-beauty"><div><h3 class="project-title">美本无界</h3><p class="project-meta">03 / 欧莱雅美妆科技黑客松 · 队长 / AI 产品经理 · 2026</p></div><div class="project-body"><p>参考妆不一定适合每个人的脸型和现有工具。我主导将固定唇妆陪练调整为“参考妆因人适配”，用“同图不同脸”验证产品方案。</p><div class="case-metrics"><span>2 套演示方案</span><span>6 步跟妆流程</span><span>55 项自动检查</span></div><details class="project-detail"><summary>查看我的判断、动作与交付</summary><div><p><b>方案设计：</b>覆盖工具齐全、缺少关键工具两类场景，明确适配差异与核心交付范围。</p><p><b>交互边界：</b>将“已画 / 未画 / 看不清”映射为三类反馈状态，把失败提示和响应延迟纳入验收，避免把看不清误判为用户已经完成。</p><p><b>个人贡献：</b>完成产品方案及原型的主要工作，组织前端、开发、产品和化妆师对齐演示样例与迭代任务。唇妆原型通过 55 项自动检查，为后续语音、摄像头与步骤验证提供开发依据。</p></div></details><div class="project-links"></div></div></article>
+<article class="project" id="case-drama"><div><h3 class="project-title">下次做给我吃</h3><p class="project-meta">04 / AIGC 黑客松延展 · 创作与制作流程设计 · 2026</p></div><div class="project-body"><p>将参赛短片中的母女关系延展为六集有声短剧，围绕人物、道具、音画一致性，建立从故事设计到逐镜验收的制作流程。</p><div class="case-metrics"><span>6 集 · 403 秒</span><span>9:16 竖屏</span><span>124 笔视频生成</span></div><details class="project-detail"><summary>查看我的判断、动作与交付</summary><div><p><b>制作规划：</b>负责故事、分镜、生成与验收，把人物目标、服装、道具状态、说话人和准确台词写入镜头卡，组织跨集因果与前置片。</p><p><b>问题修复：</b>把双手机、口型错位和重复人声定位到具体镜头与秒段，替换问题素材、裁掉异常尾段、停用重复声轨；用 Pillow 绘制正确文字并透视贴合，修复手机名单乱码。</p><p><b>交付方式：</b>通过 JSON 镜头清单与 FFmpeg 管理裁切、声源及合成，采用静音看、独立听、带声逐镜和六集连看的验收流程，开源制作 SOP、渲染代码、返工案例与成本核算方法。</p><p><b>成本口径：</b>制作期总计消耗 11,460 积分，包含候选生成与返工；公开生成记录与成本核算方法。</p></div></details><div class="project-links"><a href="https://github.com/Yiheng-guo/ai-short-drama-production-playbook" target="_blank" rel="noopener noreferrer">制作复盘与开源工具 ↗</a></div></div></article>
+<article class="project" id="case-office"><div><h3 class="project-title">亦伴 · 造物</h3><p class="project-meta">05 / 个人办公与原型生成 · 独立设计与开发 · 2026</p></div><div class="project-body"><p>围绕产品经理的两类高频工作，分别做资料分析与文档交付工具“亦伴”，以及需求生成交互原型的产品工厂“造物”。</p><div class="case-metrics"><span>6 类办公任务</span><span>4 类原型模板</span><span>独立部署与开源</span></div><details class="project-detail"><summary>查看我的判断、动作与交付</summary><div><p><b>亦伴：</b>上传资料、选择 PRD / 访谈洞察 / 竞品研究 / 评测 / 周报 / 会议决策任务，由模型按结构化要求生成结果，支持任务记录、失败重试和文档导出。</p><p><b>造物：</b>输入需求或选择路线图、模型评测、反馈池、实验追踪模板，生成前端交互原型；通过隔离预览体验、自然语言修订、历史版本和 ZIP 源码导出完成交付。</p><p><b>实现边界：</b>两者独立部署，可通过文档衔接使用。本地接 Codex，云端接兼容 API；公开预设演示供访客体验，造物聚焦前端交互原型与源码交付。</p></div></details><div class="project-links"><a href="https://ai-pm-worker.vercel.app/" target="_blank" rel="noopener noreferrer">亦伴演示 ↗</a><a href="https://product-foundry-psi.vercel.app/" target="_blank" rel="noopener noreferrer">造物演示 ↗</a><a href="https://github.com/Yiheng-guo/ai-pm-worker" target="_blank" rel="noopener noreferrer">亦伴代码 ↗</a><a href="https://github.com/Yiheng-guo/product-foundry" target="_blank" rel="noopener noreferrer">造物代码 ↗</a></div></div></article></section>
+      <section id="campus" aria-labelledby="campus-title"><div class="section-heading"><div><span class="eyebrow">Research & community</span><h2 class="display" id="campus-title">数据、经营与组织实践</h2></div><p>产品判断也来自真实数据、经营责任和人与人的协作。</p></div><div class="resource-grid"><article class="resource-card"><span class="content-label">用户研究 / 毕业研究</span><h3>新能源汽车<br>在线评论分析</h3><p>采集 2 万余条评论，清洗后分析 11,312 条有效评论。独立完成文本预处理、LDA 与情感分析，以 K=5 归纳用户关注主题，结合竞品差异提出补能信息、智能功能说明与服务保障建议。</p></article><article class="resource-card"><span class="content-label">经营决策 / 寒暑假实践</span><h3>美食广场<br>摊位经营</h3><p>独立负责选品、采购、定价、备货和销售，根据客户反馈与日流水调整供给。累计营收 20 万+，单日最高营收 8000+，直接承担成本与经营结果。</p></article><article class="resource-card"><span class="content-label">协作与公益 / 校园经历</span><h3>社群组织<br>与支教</h3><p>作为河南老乡会负责人维护 1000+ 人社群，参与组织 100+ 场校园活动。2024 年在方楼小学承担三年级英语教学，与 11 人团队完成教学及活动，累计志愿服务 200+ 小时。</p></article></div><p class="section-footnote">其他实践：负责 2 万条照明电商商品数据分析，输出选品、定价与展示建议；担任 ERP 沙盘市场总监，结合需求与经营数据调整市场策略。参加 GOSIM Agentic App、ARC Bench Lite，以及“互联网+”“挑战杯”等赛事。</p></section>
+      <section id="sharing"><div class="section-heading"><div><span class="eyebrow">Talks / 分享交流</span><h2 class="display">把实践带到交流现场</h2></div><p>受邀分享产品取舍、团队协作与 Agent 互动叙事实践。</p></div><div class="talk-grid"><article class="experience-card"><p class="role-label">受邀项目分享</p><h3>清华大学 · 中国人民大学</h3><p>以知乎黑客松项目《未完之页》为案例，分享从选题、用户路径、PRD 到体验取舍与演示交付的实践。</p></article><article class="experience-card"><p class="role-label">活动官方报道</p><h3>知乎黑客松</h3><p>项目获活动官方推文及宣传片报道。将参赛经历整理成公众号文章，记录团队协作与互动叙事的产品设计。</p><a class="project-link" href="https://mp.weixin.qq.com/s/FSyrZgyOTqOipx6KPu8NKA" target="_blank" rel="noopener noreferrer">阅读参赛记录 ↗</a></article></div></section>
       <!-- 学习笔记：站内入门提纲，不代表个人实测记录 -->
-      <section id="notes" aria-labelledby="notes-title">
-        <span id="skills" class="anchor-alias"></span>
-        <div class="section-heading">
-          <div><span class="eyebrow">01 / Field notes</span><h2 class="display" id="notes-title">学习笔记</h2></div>
-          <p>从一个具体问题开始。展开提纲，带着自己的任务练习。</p>
-        </div>
-        <div class="note-list">
-          <details class="note" id="note-task">
-            <summary><span class="note-number">01</span><span><span class="content-label">需求表达 · 入门提纲</span><strong>怎样把一个想法，说成 AI 能执行的任务？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
-            <div class="note-content">
-              <p>先写清楚你要拿到什么。例如，“帮我做个网站”可以缩小成“给已有个人网站增加学习笔记区，保持原有风格，手机上也能阅读”。</p>
-              <ol><li><b>提供材料：</b>现有文件、参考页面，以及需要沿用的文字和图片。</li><li><b>圈定这次改动：</b>明确要增加什么，哪些信息还需要你补充。</li><li><b>约定完成标准：</b>导航能到达、内容能打开、窄屏不被裁切。</li></ol>
-              <div class="practice-box"><b>动手练习</b><p>挑一个你想做的小工具，用三句话写清使用者、要解决的问题和最终交付物。检查有没有需要 AI 猜测的个人信息。</p></div>
-            </div>
-          </details>
-          <details class="note" id="note-check">
-            <summary><span class="note-number">02</span><span><span class="content-label">项目验收 · 入门提纲</span><strong>AI 说“完成了”，接下来应该检查什么？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
-            <div class="note-content">
-              <p>把页面打开，从访客的角度走一遍。检查结果时，最好使用最初写下的需求，而不是只看生成后的说明。</p>
-              <ol><li><b>走主流程：</b>从首页点击到内容，再回到首页；每个入口都应该有明确去处。</li><li><b>试边界情况：</b>文字很长、屏幕很窄、没有填写内容时，页面是否还能使用。</li><li><b>核对事实：</b>经历、数据、链接和联系方式要能找到依据；示例不应当作真实成果。</li></ol>
-              <div class="practice-box"><b>动手练习</b><p>为一个页面写下三条“我点击什么、应当看到什么”的检查步骤，再用手机实际操作一次。</p></div>
-            </div>
-          </details>
-          <details class="note" id="note-record">
-            <summary><span class="note-number">03</span><span><span class="content-label">知识整理 · 入门提纲</span><strong>一次实践之后，留下什么才方便下次继续？</strong></span><span class="expand-icon" aria-hidden="true">+</span></summary>
-            <div class="note-content">
-              <p>一条有用的笔记，应当让过一段时间的自己知道当时为什么做、现在做到哪里，以及下一步要做什么。</p>
-              <ol><li><b>背景：</b>记录具体问题和当时使用的材料。</li><li><b>过程与证据：</b>保留关键步骤、实际结果和对应文件；把推测与验证过的结论分开。</li><li><b>剩余问题：</b>写下未解决的限制和下一步，避免把未完成工作误记为完成。</li></ol>
-              <div class="practice-box"><b>动手练习</b><p>用“问题 / 做法 / 结果 / 待验证”四个小标题，记录今天的一次 AI 使用过程。</p></div>
-            </div>
-          </details>
-        </div>
-      </section>
+      <section id="notes" aria-labelledby="notes-title"><div class="section-heading"><div><span class="eyebrow">Methods / 方法沉淀</span><h2 class="display" id="notes-title">从做过的事里提炼方法</h2></div><p>将评测、产品拆解和内容制作经验整理为可复用的工作流。</p></div><div class="note-list">
+<details class="note"><summary><span class="note-number">01</span><div><span class="content-label">模型评测</span><strong>七步评测工作流：先定通过条件，再做模型选型</strong></div><span class="expand-icon">+</span></summary><div class="note-content"><p>定目标 → 定维度 → 设计评测集 → 定打分标准 → 评分校准 → 批量评测 → 输出报告。</p><p>核心是固定任务、输入输出口径和评分规则，用任务完成度、逻辑边界与成本解释选型；失败案例必须对应优化建议。评测模板提供方法，不替代具体模型的实测结果。</p><a class="project-link" href="https://github.com/Yiheng-guo/model-eval-workflow" target="_blank" rel="noopener noreferrer">查看工作流与模板 ↗</a></div></details>
+<details class="note"><summary><span class="note-number">02</span><div><span class="content-label">产品拆解</span><strong>沿用户旅程分析确认节点、依赖与失败分支</strong></div><span class="expand-icon">+</span></summary><div class="note-content"><p>从真实任务出发，走通输入、处理、确认、修改和导出的路径。AIGC 创作拆解尤其关注角色与风格约束、生成状态、局部返工，以及模型能力与产品承诺之间的差距。</p><a class="project-link" href="https://github.com/Yiheng-guo/ai-product-teardown" target="_blank" rel="noopener noreferrer">查看 AI 产品拆解 Skill ↗</a></div></details>
+<details class="note"><summary><span class="note-number">03</span><div><span class="content-label">短剧制作</span><strong>把穿帮定位到镜头、时间码和声轨</strong></div><span class="expand-icon">+</span></summary><div class="note-content"><p>先确认故事、人物和分镜，再生成候选素材；通过镜头清单保存采用区间、声源和版本。发现问题后回查源镜头，按素材错误、音轨冲突、文字可读性或叙事断点选择修复动作，再逐镜复验。</p><a class="project-link" href="https://github.com/Yiheng-guo/ai-short-drama-production-playbook" target="_blank" rel="noopener noreferrer">查看制作 SOP 与案例 ↗</a></div></details></div></section>
 
       <!-- 项目 -->
-      <section id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <div><span class="eyebrow">02 / Selected work</span><h2 class="display" id="projects-title">项目作品</h2></div>
-          <p>从产品设计到开发落地，记录可以公开的实践。</p>
-        </div>
-        <article class="project">
-          <div><h3 class="project-title">企业官网<br>与智能客服</h3><p class="project-meta">01 · 郑州奎达工程技术服务有限公司 · 独立交付</p></div>
-          <div class="project-body"><p>面向工程造价咨询、招投标代理等业务，独立完成企业官网及智能客服，提供业务展示与在线咨询入口。</p><p>将企业信息整理为业务范围、服务流程、常见问题与联系方式等模块，围绕资料清单、收费方式和交付周期等咨询主题提供信息，并引导复杂问题联系专人。</p><a href="https://zzkuida.com/" target="_blank" rel="noopener noreferrer" class="project-link">访问企业官网 ↗</a></div>
-        </article>
-        <article class="project">
-          <div><h3 class="project-title">知乎黑客松<br>项目实践</h3><p class="project-meta">02 · 优秀项目代表 · 高校分享</p></div>
-          <div class="project-body"><p>完成 AI 产品从 0 到 1 的设计、开发与落地实践，并作为知乎黑客松优秀项目代表，受邀前往中国人民大学、清华大学做项目分享演讲。</p><p class="section-footnote">项目详情与分享资料将在整理后公开。</p></div>
-        </article>
-        <article class="project">
-          <div><h3 class="project-title">个人 AI<br>实践空间</h3><p class="project-meta">03 · 个人网站 · 持续更新</p></div>
-          <div class="project-body">
-            <p>你正在浏览的这个网站。将个人介绍、学习笔记、项目展示和教程阅读连接起来，保留黑底、紫色与粒子的视觉风格。</p>
-            <details class="project-detail"><summary>查看项目说明</summary><div><p>使用 HTML、CSS 和 JavaScript 构建。学习提纲可直接展开，精选教程链接到原作者页面；无需注册即可阅读。</p><p>网站源码保存在 GitHub，可查看版本记录与后续更新。<a href="https://github.com/Yiheng-guo/personal-website" target="_blank" rel="noopener noreferrer" class="project-link">查看源码 ↗</a></p></div></details>
-          </div>
-        </article>
-        <p class="section-footnote">其他项目将在补充真实介绍、作品链接和实践记录后收录。</p>
-      </section>
-
       <!-- 外部精选教程：仅链接，不转载原站文章 -->
       <section id="tutorials" aria-labelledby="tutorials-title">
         <div class="section-heading">
@@ -576,8 +528,8 @@
 
       <!-- 公众号：保留原站入口 -->
       <section id="wechat">
-        <div class="section-heading"><div><span class="eyebrow">Writing / 公众号</span><h2 class="display">O叶小恒O</h2></div><p>分享创作与思考，用文字记录学习与实践。</p></div>
-        <div class="social-panel"><div><h3>在公众号继续交流</h3><p>微信扫码关注，或搜一搜「O叶小恒O」。</p></div><a href="images/wechat-qrcode.png" target="_blank" rel="noopener" aria-label="查看公众号二维码原图"><img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" width="260" loading="lazy"></a></div>
+        <div class="section-heading"><div><span class="eyebrow">Writing / 公众号</span><h2 class="display">O叶小恒O</h2></div><p>记录黑客松、企业交付、模型评测与 AIGC 创作中的实践。</p></div>
+        <div class="social-panel"><div><h3>在公众号继续交流</h3><p>把项目中的问题、判断和返工经验整理成文章。微信扫码关注，或搜一搜「O叶小恒O」。</p><p><a class="project-link" href="https://mp.weixin.qq.com/s/FSyrZgyOTqOipx6KPu8NKA" target="_blank" rel="noopener noreferrer">精选文章：未完之页参赛记录 ↗</a></p></div><a href="images/wechat-qrcode.png" target="_blank" rel="noopener" aria-label="查看公众号二维码原图"><img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" width="260" loading="lazy"></a></div>
       </section>
       <!-- 联系 -->
       <section id="contact">
