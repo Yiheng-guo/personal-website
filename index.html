@@ -426,8 +426,13 @@
     .social-panel h3 { font-size:26px; font-weight:500; margin-bottom:18px; }
     .social-panel p { font-size:16px; color:#bdbdbd; line-height:1.8; }
     .social-panel img { display:block; width:100%; max-width:280px; height:auto; border-radius:12px; }
+    .contact-panel { grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:36px; }
+    .contact-codes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:584px; }
+    .personal-qr a { display:block; max-width:280px; border-radius:12px; }
     .personal-qr figcaption { font-size:14px; color:#bdbdbd; margin-top:16px; }
+    @media(max-width:900px) { .contact-panel { grid-template-columns:minmax(0,1fr); } }
     @media(max-width:700px) { .social-panel { grid-template-columns:minmax(0,1fr); padding:24px; gap:36px; } .contact-mail { overflow-wrap:anywhere; } }
+    @media(max-width:520px) { .contact-codes { grid-template-columns:minmax(0,1fr); gap:32px; } }
 
     .skill-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
     .skill-tags span { border:1px solid #393042; border-radius:999px; padding:7px 12px; font-size:13px; color:#d0bcff; background:#15101f; }
@@ -554,9 +559,15 @@
       <!-- 联系 -->
       <section id="contact">
         <div class="section-heading"><div><span class="eyebrow">Contact</span><h2 class="display">聊聊你的业务场景</h2></div></div>
-        <div class="social-panel">
+        <div class="social-panel contact-panel">
           <div class="contact"><p>欢迎交流AI 应用场景、AI 产品落地与项目合作。</p><p><a class="contact-mail" href="mailto:guo131378@gmail.com">guo131378@gmail.com</a><br><a href="tel:+8619839706688">198 3970 6688</a></p><div class="contact-actions"><a href="mailto:guo131378@gmail.com" class="btn">邮件联系</a><a href="https://github.com/Yiheng-guo" target="_blank" rel="noopener noreferrer" class="ghost-link">GitHub ↗</a></div></div>
-          <figure class="personal-qr"><a href="images/wechat-personal.png" target="_blank" rel="noopener" aria-label="查看个人微信二维码原图"><img src="images/wechat-personal.png" alt="郭一恒的个人微信二维码，扫码添加好友" width="280" height="416" loading="lazy"></a><figcaption>微信扫码添加好友 · 点击查看原图</figcaption></figure>
+          <div class="contact-codes">
+            <figure class="personal-qr"><a href="images/wechat-personal.png" target="_blank" rel="noopener" aria-label="查看个人微信二维码原图"><img src="images/wechat-personal.png" alt="郭一恒的个人微信二维码，扫码添加好友" width="280" height="416" loading="lazy"></a><figcaption>微信扫码添加好友 · 点击查看原图</figcaption></figure>
+            <figure class="personal-qr">
+              <a href="images/douyin-code.png" target="_blank" rel="noopener" aria-label="查看抖音码原图"><img src="images/douyin-code.png" alt="叶小恒的抖音码" width="1125" height="1680" loading="lazy"></a>
+              <figcaption>抖音号：80543996383<br>打开抖音扫一扫 · 点击查看原图</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
     </main>
