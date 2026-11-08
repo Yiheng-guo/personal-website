@@ -426,13 +426,46 @@
     .social-panel h3 { font-size:26px; font-weight:500; margin-bottom:18px; }
     .social-panel p { font-size:16px; color:#bdbdbd; line-height:1.8; }
     .social-panel img { display:block; width:100%; max-width:280px; height:auto; border-radius:12px; }
-    .contact-panel { grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:36px; }
-    .contact-codes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:584px; }
     .personal-qr a { display:block; max-width:280px; border-radius:12px; }
     .personal-qr figcaption { font-size:14px; color:#bdbdbd; margin-top:16px; }
-    @media(max-width:900px) { .contact-panel { grid-template-columns:minmax(0,1fr); } }
     @media(max-width:700px) { .social-panel { grid-template-columns:minmax(0,1fr); padding:24px; gap:36px; } .contact-mail { overflow-wrap:anywhere; } }
-    @media(max-width:520px) { .contact-codes { grid-template-columns:minmax(0,1fr); gap:32px; } }
+    .follow-codes {
+      grid-template-columns:repeat(2,minmax(0,320px));
+      justify-content:center;
+      align-items:start;
+      gap:clamp(12px,4vw,48px);
+      padding:clamp(12px,3vw,36px);
+    }
+    .follow-code { min-width:0; text-align:center; }
+    .follow-code a {
+      display:block;
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:1;
+      border-radius:12px;
+    }
+    .follow-code img { width:100%; height:100%; max-width:none; object-fit:cover; object-position:left; }
+    /* Frame the circular Douyin code within the original portrait share card. */
+    .follow-code .douyin-code {
+      position:absolute;
+      width:144%;
+      height:auto;
+      left:-22%;
+      top:-27%;
+    }
+    .follow-code figcaption { margin-top:12px; font-size:14px; color:#bdbdbd; }
+    .follow-code strong { display:block; color:var(--color-bone-white); font-size:clamp(15px,2vw,22px); }
+    .follow-links { display:flex; flex-wrap:wrap; gap:12px 24px; }
+    body:has(#follow:target) :is(header, footer, main > section:not(#wechat), .back-top, .rain-toggle, canvas, .follow-links) {
+      display:none;
+    }
+    body:has(#follow:target) #wechat {
+      display:grid;
+      align-content:center;
+      min-height:100svh;
+      padding:24px 0;
+    }
+    body:has(#follow:target) #wechat .section-heading { margin-bottom:24px; }
 
     .skill-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
     .skill-tags span { border:1px solid #393042; border-radius:999px; padding:7px 12px; font-size:13px; color:#d0bcff; background:#15101f; }
@@ -551,23 +584,39 @@
       <!-- 项目 -->
       <section id="tutorials" aria-labelledby="tutorials-title"><div class="section-heading"><div><span class="eyebrow">Practice / 实战教程</span><h2 class="display" id="tutorials-title">把经验写成可操作的步骤</h2></div><p>结合企业交付、模型评测和短剧制作，整理操作方法、案例与练习模板。</p></div><div class="resource-grid"><article class="resource-card"><span class="content-label">01 / 企业交付</span><h3>从企业需求到<br>可用的 Agent</h3><p>以奎达智能客服为案例，拆解业务访谈、RAG、联网检索、人工兜底与上线验收。</p><a href="tutorials/enterprise-agent.html">阅读完整教程 →</a></article><article class="resource-card"><span class="content-label">02 / 评测与复用</span><h3>七步模型评测<br>与 Skill 沉淀</h3><p>从剧本任务出发，明确完成度、逻辑边界和预算，用失败案例解释选型并留下复用模板。</p><a href="tutorials/model-eval-skill.html">阅读完整教程 →</a></article><article class="resource-card"><span class="content-label">03 / 内容制作</span><h3>AI 短剧的<br>逐镜制作与返工</h3><p>从故事和镜头卡开始，处理角色、道具与声音问题，把验收落实到镜头、时间码和声轨。</p><a href="tutorials/aigc-production.html">阅读完整教程 →</a></article></div></section>
 
-      <!-- 公众号：保留原站入口 -->
+      <!-- 公开关注 -->
       <section id="wechat">
-        <div class="section-heading"><div><span class="eyebrow">Writing / 公众号</span><h2 class="display">O叶小恒O</h2></div><p>分享 AI 领域的研究、前沿技术与知识，以及对产品和行业的思考。</p></div>
-        <div class="social-panel"><div><h3>在公众号继续交流</h3><p>围绕 AI 技术、模型能力与产品应用，分享研究笔记、知识解读和个人观点，也记录参与活动与项目实践后的观察。微信扫码关注，或搜一搜「O叶小恒O」。</p><p><a class="project-link" href="https://mp.weixin.qq.com/s/FSyrZgyOTqOipx6KPu8NKA" target="_blank" rel="noopener noreferrer">活动复盘：未完之页参赛记录 ↗</a></p></div><a href="images/wechat-qrcode.png" target="_blank" rel="noopener" aria-label="查看公众号二维码原图"><img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" width="260" loading="lazy"></a></div>
+        <div id="follow">
+          <div class="section-heading">
+            <div><span class="eyebrow">Follow / 关注</span><h2 class="display">关注叶小恒</h2></div>
+            <p>分享 AI 研究、产品实践和项目复盘。</p>
+          </div>
+          <div class="social-panel follow-codes">
+            <figure class="follow-code">
+              <a href="images/wechat-qrcode.png" target="_blank" rel="noopener" aria-label="查看公众号二维码原图">
+                <img src="images/wechat-qrcode.png" alt="微信公众号 O叶小恒O 二维码" width="1710" height="624" loading="lazy">
+              </a>
+              <figcaption><strong>微信公众号</strong>O叶小恒O</figcaption>
+            </figure>
+            <figure class="follow-code">
+              <a href="images/douyin-code.png" target="_blank" rel="noopener" aria-label="查看抖音码原图">
+                <img class="douyin-code" src="images/douyin-code.png" alt="叶小恒的抖音码" width="1125" height="1680" loading="lazy">
+              </a>
+              <figcaption><strong>抖音</strong>80543996383</figcaption>
+            </figure>
+          </div>
+          <p class="section-footnote follow-links">
+            <a class="project-link" href="#follow" target="_blank" rel="noopener">投屏展示 ↗</a>
+            <a class="project-link" href="https://mp.weixin.qq.com/s/FSyrZgyOTqOipx6KPu8NKA" target="_blank" rel="noopener noreferrer">活动复盘：未完之页参赛记录 ↗</a>
+          </p>
+        </div>
       </section>
       <!-- 联系 -->
       <section id="contact">
         <div class="section-heading"><div><span class="eyebrow">Contact</span><h2 class="display">聊聊你的业务场景</h2></div></div>
-        <div class="social-panel contact-panel">
+        <div class="social-panel">
           <div class="contact"><p>欢迎交流AI 应用场景、AI 产品落地与项目合作。</p><p><a class="contact-mail" href="mailto:guo131378@gmail.com">guo131378@gmail.com</a><br><a href="tel:+8619839706688">198 3970 6688</a></p><div class="contact-actions"><a href="mailto:guo131378@gmail.com" class="btn">邮件联系</a><a href="https://github.com/Yiheng-guo" target="_blank" rel="noopener noreferrer" class="ghost-link">GitHub ↗</a></div></div>
-          <div class="contact-codes">
-            <figure class="personal-qr"><a href="images/wechat-personal.png" target="_blank" rel="noopener" aria-label="查看个人微信二维码原图"><img src="images/wechat-personal.png" alt="郭一恒的个人微信二维码，扫码添加好友" width="280" height="416" loading="lazy"></a><figcaption>微信扫码添加好友 · 点击查看原图</figcaption></figure>
-            <figure class="personal-qr">
-              <a href="images/douyin-code.png" target="_blank" rel="noopener" aria-label="查看抖音码原图"><img src="images/douyin-code.png" alt="叶小恒的抖音码" width="1125" height="1680" loading="lazy"></a>
-              <figcaption>抖音号：80543996383<br>打开抖音扫一扫 · 点击查看原图</figcaption>
-            </figure>
-          </div>
+          <figure class="personal-qr"><a href="images/wechat-personal.png" target="_blank" rel="noopener" aria-label="查看个人微信二维码原图"><img src="images/wechat-personal.png" alt="郭一恒的个人微信二维码，扫码添加好友" width="280" height="416" loading="lazy"></a><figcaption>微信扫码添加好友 · 点击查看原图</figcaption></figure>
         </div>
       </section>
     </main>
